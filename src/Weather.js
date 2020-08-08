@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ForecastBox from "./ForecastBox";
 import "./Weather.css";
 import axios from "axios";
 import FriendlyDate from "./FriendlyDate";
 import TodayInfo from "./TodayInfo";
+import Forecast from "./Forecast.js";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.city);
@@ -60,18 +60,7 @@ export default function Weather(props) {
         <FriendlyDate date={weather.date} />
         <TodayInfo data={weather} />
         <br />
-        <div className="row">
-          <div className="col-6">
-            <ForecastBox />
-            <ForecastBox />
-            <ForecastBox />
-          </div>
-          <div className="col-6">
-            <ForecastBox />
-            <ForecastBox />
-            <ForecastBox />
-          </div>
-        </div>
+        <Forecast city={weather.name} />
       </div>
     );
   } else {
