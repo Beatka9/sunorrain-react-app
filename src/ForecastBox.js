@@ -2,26 +2,33 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function ForecastBox(props) {
-  let [forecast, setForecast] = useState({ ready: false });
-  const apiKey = "b502e3f5d51eafa682fcf63b13086eef";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city},us& mode=xml&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(handleResponse);
-
+  let [ready, setReady] = useState(false);
+  let [forecast, setForecast] = useState(null);
   function handleResponse(response) {
     console.log(response);
+    setReady(true);
     setForecast = {
-      ready: false,
+      temperature: response.data.list[props.list].main.temp,
+      date: new Date(response.data.list[props.list].dt * 1000),
+      icon: `http://openweathermap.org/img/wn/${
+        response.data.list[props.list].weather[0].icon
+      }@2x.png`,
     };
   }
-  if (forecast.ready) {
+  if (ready.true) {
     return (
       <div className="ForecastBox">
-        <span className="ForecastHours">hours</span>{" "}
-        <span className="ForecastIcon"> ICON</span>
-        <span className="ForecastTemperature">11</span>
+        {forecast.date.getHours()}:00
+        <img src={forecast.icon} />
+        <span className="ForecastTemperature">
+          {Math.round(forecast.temperature)}
+        </span>
       </div>
     );
   } else {
-    return "Come back later alligator";
+    const apiKey = "b502e3f5d51eafa682fcf63b13086eef";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city},us& mode=xml&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+    return null;
   }
 }

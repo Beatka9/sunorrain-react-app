@@ -1,10 +1,12 @@
 import React from "react";
 import TemperatureNow from "./TemperatureNow";
+
 export default function TodayInfo(props) {
   return (
     <div>
       <div className="row">
         <div className="col-7">
+          <img src={props.data.iconUrl} />
           <TemperatureNow celsius={props.data.temperature} />
           <p className="RangeTemperatureNow">
             <span id="maxTemperatureNow">{Math.round(props.data.tempMax)}</span>
