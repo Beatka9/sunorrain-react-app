@@ -1,0 +1,25 @@
+.WeatherDataNow {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.TempNow {
+  text-align: center;
+  line-height: 2;
+}
+.IconNow {
+  float: left;
+  position: relative;
+  left: 50px;
+}
+.TemperatureNow {
+  font-size: 40px;
+  position: relative;
+  bottom: 10px;
+}
+.RangeTemperatureNow {
+  font-size: 18px;
+}
+#weatherDescription {
+  font-weight: bold;
+}

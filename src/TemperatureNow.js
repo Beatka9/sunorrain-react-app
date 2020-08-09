@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./TemperatureNow.css";
 
 export default function TemperatureNow(props) {
   let [temperature, setTemperature] = useState(props.celsius);
@@ -16,7 +17,7 @@ export default function TemperatureNow(props) {
       <span className="streched-link" onClick={celsiusTemp}>
         C°
       </span>
-      <span className="steched-link" onClick={farTemperature}>
+      <span className="streched-link" onClick={farTemperature}>
         |F°
       </span>
     </p>

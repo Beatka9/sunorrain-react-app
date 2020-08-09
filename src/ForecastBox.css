@@ -1,0 +1,16 @@
+.ForecastBox {
+  border: dotted 1px #212121;
+  border-radius: 6px;
+  padding: 6px;
+  margin: 5px auto;
+  max-width: 150px;
+}
+.ForecastHours,
+.ForecastTemperature {
+  font-weight: bold;
+  position: relative;
+  bottom: 10px;
+}
+.Icon {
+  margin: 12px;
+}

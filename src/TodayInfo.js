@@ -1,19 +1,25 @@
 import React from "react";
 import TemperatureNow from "./TemperatureNow";
 import Icon from "./Icon";
+import "./TodayInfo.css";
 
 export default function TodayInfo(props) {
   return (
     <div>
       <div className="row">
-        <div className="col-7">
-          <Icon code={props.data.iconCode} />
-          <TemperatureNow celsius={props.data.temperature} />
+        <div className="col-7 TempNow">
+          <span className="IconNow">
+            <Icon code={props.data.iconCode} />
+          </span>
+          <span>
+            <TemperatureNow celsius={props.data.temperature} />
+          </span>
+
           <p className="RangeTemperatureNow">
             <span id="maxTemperatureNow">{Math.round(props.data.tempMax)}</span>
-            C°/
+            °/
             <span id="minTemperatureNow">{Math.round(props.data.tempMin)}</span>
-            C°
+            °
           </p>
         </div>
         <div className=" col-4 WeatherDataNow">
