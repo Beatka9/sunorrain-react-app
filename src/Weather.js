@@ -8,6 +8,7 @@ import Forecast from "./Forecast.js";
 export default function Weather(props) {
   let [city, setCity] = useState(props.city);
   let [weather, setWeather] = useState({ ready: false });
+
   function search(city) {
     const apiKey = "b502e3f5d51eafa682fcf63b13086eef";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -23,7 +24,7 @@ export default function Weather(props) {
       tempMin: response.data.main.temp_min,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      iconCode: response.data.weather[0].icon,
       feelsLike: response.data.main.feels_like,
       windSpeed: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -55,7 +56,6 @@ export default function Weather(props) {
           </div>
         </div>
         <h2 className="showed-city">{weather.name}</h2>
-
         <FriendlyDate date={weather.date} />
         <TodayInfo data={weather} />
         <br />
@@ -64,6 +64,6 @@ export default function Weather(props) {
     );
   } else {
     search(city);
-    return "Loading...";
+    return <p>Loading...</p>;
   }
 }
