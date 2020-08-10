@@ -5,7 +5,7 @@
 }
 .TempNow {
   text-align: center;
-  line-height: 2;
+  line-height: 1.5;
 }
 .IconNow {
   float: left;
@@ -14,11 +14,12 @@
 }
 .TemperatureNow {
   font-size: 40px;
+  font-weight: bold;
   position: relative;
   bottom: 10px;
 }
 .RangeTemperatureNow {
-  font-size: 18px;
+  font-size: 20px;
 }
 #weatherDescription {
   font-weight: bold;

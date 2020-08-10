@@ -1,4 +1,5 @@
 .container {
+  background-image: url("./white-squared-paper.png");
   max-width: 550px;
   border: dotted 2px #212121;
   border-radius: 10px;
@@ -7,7 +8,11 @@
 form,
 .NameApp {
   margin: 5px auto;
+  font-style: italic;
 }
 input {
   border-radius: 3px;
+}
+.showed-city {
+  font-weight: bold;
 }
