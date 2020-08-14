@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TemperatureNow.css";
 
 export default function TemperatureNow(props) {
-  let [temperature, setTemperature] = useState(props.celsius);
+  let temperature = props.celsius;
+
   function farTemperature(event) {
     event.preventDefault();
-    setTemperature((props.celsius * 9) / 5 + 32);
+    temperature = (props.celsius * 9) / 5 + 32;
   }
   function celsiusTemp(event) {
     event.preventDefault();
-    setTemperature(props.celsius);
+    temperature = props.celsius;
   }
   return (
     <p>

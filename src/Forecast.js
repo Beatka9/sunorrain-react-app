@@ -3,15 +3,16 @@ import ForecastBox from "./ForecastBox";
 import axios from "axios";
 
 export default function Forecast(props) {
-  let [forecast, setForecast] = useState({ ready: false });
+  let [forecast, setForecast] = useState(null);
+  let [ready, setReady] = useState(false);
 
   function dataForecast(response) {
     setForecast({
-      ready: true,
       data: response.data,
     });
+    setReady(true);
   }
-  if (forecast.ready) {
+  if (ready && forecast.data.city.name === props.city) {
     return (
       <div className="row">
         <div className="col-6">
@@ -30,6 +31,6 @@ export default function Forecast(props) {
     const apiKey = "b502e3f5d51eafa682fcf63b13086eef";
     let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(dataForecast);
-    return "Load!";
+    return "wait for it...";
   }
 }
