@@ -1,9 +1,9 @@
-.streched-link {
+.unit {
   position: relative;
   bottom: 28px;
   transition: ease-in-out 200ms;
 }
-.streched-link:hover {
+.streched-link {
   background-color: black;
   color: whitesmoke;
   border-radius: 2px;

@@ -18,11 +18,9 @@ export default function TemperatureNow(props) {
   if (units === "celsius") {
     return (
       <p>
-        <span className="TemperatureNow">
-          {Math.round(celsiusTemperature)}{" "}
-        </span>
-        <span className="streched-link">C°</span>
-        <span className="streched-link" onClick={setFarenheit}>
+        <span className="TemperatureNow">{Math.round(celsiusTemperature)}</span>
+        <span className="unit">C°</span>
+        <span className="streched-link unit" onClick={setFarenheit}>
           |F°
         </span>
       </p>
@@ -33,10 +31,10 @@ export default function TemperatureNow(props) {
         <span className="TemperatureNow">
           {Math.round(farenheitTemperature)}
         </span>
-        <span className="streched-link" onClick={setCelsius}>
+        <span className="streched-link unit" onClick={setCelsius}>
           C°
         </span>
-        <span className="streched-link">|F°</span>
+        <span className="unit">|F°</span>
       </p>
     );
   }
